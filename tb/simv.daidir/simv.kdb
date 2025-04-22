@@ -1,0 +1,19 @@
+rc file Version 1.0
+
+[Design]
+COMPILE_PATH=/home/Shahad_Alhamyani/vd_training/CX-301-DesignVerification/Peripheral/ptc/ptc/tb
+VCS_HOME=/mnt/NVME2/synopsys/vcs/W-2024.09-SP1
+VERDI_HOME=/mnt/NVME2/synopsys/verdi/W-2024.09
+SystemC=FALSE
+UUM=FALSE
+KDB=FALSE
+USE_NOVAS_HOME=FALSE
+COSIM=FALSE
+TOP=uvm_custom_install_recording hw_top tb_top 
+
+[Value]
+WREALX=ffff534e50535f58
+WREALZ=ffff534e50535f5a
+
+[CompInfo]
+FLOW_OPTS=

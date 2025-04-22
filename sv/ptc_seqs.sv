@@ -1,6 +1,9 @@
 class ptc_base_seq extends uvm_sequence #(ptc_transaction);
   `uvm_object_utils(ptc_base_seq)
 
+  //newline
+  localparam RPTC_CTRL_ADDR = 32'h4000_0000;
+  
   function new(string name = "ptc_base_seq");
     super.new(name);
   endfunction
