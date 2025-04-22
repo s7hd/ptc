@@ -3,7 +3,8 @@ class ptc_monitor extends uvm_monitor;
 
   virtual ptc_if vif;
 
-  uvm_analysis_port #(ptc_tx) mon_ap;
+  uvm_analysis_port #(ptc_transaction) mon_ap;
+   ptc_transaction tx;
 
   function new(string name, uvm_component parent);
     super.new(name, parent);
@@ -19,8 +20,8 @@ class ptc_monitor extends uvm_monitor;
   task run_phase(uvm_phase phase);
     forever begin
       @(posedge vif.clk);
-
-      ptc_tx tx = ptc_tx::type_id::create("tx_mon");
+     
+      tx = ptc_transaction::type_id::create("tx_mon");
 
       //output signals from DUT 
       tx.data[0] = vif.ptc_pwm;

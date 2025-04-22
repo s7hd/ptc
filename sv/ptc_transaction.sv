@@ -1,4 +1,4 @@
-class ptc_tx extends uvm_sequence_item;
+class ptc_transaction extends uvm_sequence_item;
 
   rand bit [31:0] addr;
   rand bit [31:0] data; //read or write from DUT
@@ -7,9 +7,9 @@ class ptc_tx extends uvm_sequence_item;
   rand bit use_ecgt; // if set to 1, apply ptc_ecgt with value specified below
   rand bit ecgt_val; //value to be applied on ptc_ecgt (1 = high, 0 = low)
 
-  `uvm_object_utils(ptc_tx)
+  `uvm_object_utils(ptc_transaction)
 
-  function new(string name = "ptc_tx");
+  function new(string name = "ptc_transaction");
     super.new(name);
   endfunction
 

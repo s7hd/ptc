@@ -1,4 +1,4 @@
-class ptc_driver extends uvm_driver #(ptc_tx);
+class ptc_driver extends uvm_driver #(ptc_transaction);
   `uvm_component_utils(ptc_driver)
 
   virtual ptc_if vif;
@@ -15,7 +15,7 @@ class ptc_driver extends uvm_driver #(ptc_tx);
 
   task run_phase(uvm_phase phase);
     forever begin
-      ptc_tx tx;
+      ptc_transaction tx;
       seq_item_port.get_next_item(tx);
 
       @(posedge vif.clk);
