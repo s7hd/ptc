@@ -13,9 +13,9 @@ typedef uvm_config_db#(virtual ptc_if) ptc_vif_config;
   
   
   initial begin
-    // Set spi interface for monitor & driver
+    // Set ptc interface for monitor & driver
     ptc_vif_config::set(null,"*env.agent.*","vif",hw_top.in0);
-    run_test();
+    run_test("base_test");
   end
 
   initial begin 

@@ -8,7 +8,7 @@
 
 // compile files
 //*** add compile files here
-../tb/clkgen.sv 
-../tb/hw_top_no.sv
+clkgen.sv 
+hw_top_no.sv
 
 tb_top.sv # compile top level module

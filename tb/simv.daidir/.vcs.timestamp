@@ -308,8 +308,8 @@ simv
 ../sv
 ../sv/ptc_pkg.sv
 ../sv/ptc_if.sv
-../tb/clkgen.sv
-../tb/hw_top_no.sv
+clkgen.sv
+hw_top_no.sv
 tb_top.sv
 /mnt/NVME2/synopsys/vcs/W-2024.09-SP1/linux64/lib/vcsdstub.tab
 126
@@ -446,7 +446,7 @@ ALE_HOME=/mnt/NVME2/synopsys/ale
 1745310966 ptc_tb.sv
 1745310966 ../sv/ptc_env.sv
 1745310966 ../sv/ptc_agent.sv
-1745310966 ../sv/ptc_driver.sv
+1745324057 ../sv/ptc_driver.sv
 1745310966 ../sv/ptc_sequencer.sv
 1745319525 ../sv/ptc_seqs.sv
 1745310966 ../sv/ptc_monitor.sv
@@ -586,15 +586,15 @@ ALE_HOME=/mnt/NVME2/synopsys/ale
 1733289097 /mnt/NVME2/synopsys/vcs/W-2024.09-SP1/etc/uvm/macros/snps_macros.svp
 1733289097 /mnt/NVME2/synopsys/vcs/W-2024.09-SP1/etc/uvm/macros/uvm_version_defines.svh
 1733289098 /mnt/NVME2/synopsys/vcs/W-2024.09-SP1/etc/uvm/uvm_macros.svh
-1745310966 tb_top.sv
-1745310966 ../tb/hw_top_no.sv
-1745310966 ../tb/clkgen.sv
+1745324677 tb_top.sv
+1745310966 hw_top_no.sv
+1745310966 clkgen.sv
 1745320083 ../sv/ptc_if.sv
 1745317114 ../sv/ptc_pkg.sv
 1745310966 ../sv
 1733289098 /mnt/NVME2/synopsys/vcs/W-2024.09-SP1/etc/uvm/uvm_pkg.sv
 1733285154 /mnt/NVME2/synopsys/vcs/W-2024.09-SP1/linux64/lib/vcsdstub.tab
-1745313124 filelist.f
+1745323553 filelist.f
 6
 1733289097 /mnt/NVME2/synopsys/vcs/W-2024.09-SP1/etc/uvm/dpi/uvm_dpi.cc
 1733287584 /mnt/NVME2/synopsys/vcs/W-2024.09-SP1/linux64/lib/vpdlogstub.o
@@ -602,5 +602,5 @@ ALE_HOME=/mnt/NVME2/synopsys/ale
 1733286010 /mnt/NVME2/synopsys/vcs/W-2024.09-SP1/linux64/lib/liberrorinf.so
 1733286000 /mnt/NVME2/synopsys/vcs/W-2024.09-SP1/linux64/lib/libsnpsmalloc.so
 1733285992 /mnt/NVME2/synopsys/vcs/W-2024.09-SP1/linux64/lib/libvfs.so
-1745320444 simv.daidir
+1745326233 simv.daidir
 -1 partitionlib
