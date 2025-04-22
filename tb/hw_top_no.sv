@@ -6,8 +6,8 @@ module hw_top;
   logic         clock;
   logic         reset;
 
-  // YAPP Interface to the DUT
-  ptc_if in0(clock,reset);
+  // ptc Interface to the DUT
+  ptc_if in0 (clock,reset);
 
   // CLKGEN module generates clock
   clkgen clkgen (

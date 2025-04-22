@@ -9,15 +9,15 @@ interface ptc_if(input logic clk, input logic rst);
   logic ptc_oen;   // PWM output enable (3-state control)
   logic inta_o;    //// Interrupt output
   
-  // WISHBONE host interface
-  logic ADR_I;    //Address inputs
-  logic SEL_I;    //Indicates valid bytes on data bus
-  logic CYC_I;    //Indicates valid bus cycle (core select)
-  logic STB_I;    //Indicates valid data transfer cycle
-  logic WE_I;     //Write transaction when asserted high
-  logic DAT_I;    //Data inputs
-  logic DAT_O;    //Data outputs
-  logic ACK_O;    //Acknowledgment output
+  // // WISHBONE host interface
+  // logic ADR_I;    //Address inputs
+  // logic SEL_I;    //Indicates valid bytes on data bus
+  // logic CYC_I;    //Indicates valid bus cycle (core select)
+  // logic STB_I;    //Indicates valid data transfer cycle
+  // logic WE_I;     //Write transaction when asserted high
+  // logic DAT_I;    //Data inputs
+  // logic DAT_O;    //Data outputs
+  // logic ACK_O;    //Acknowledgment output
 
 
 

@@ -2839,6 +2839,7 @@ extern "C" {
 void  rmaPropagate0_simv_daidir (UB  * pcode, scalar  val);
 void  rmaPropagate1_simv_daidir (UB  * pcode, scalar  val);
 void  rmaPropagate2_simv_daidir (UB  * pcode, scalar  val);
+void  rmaPropagate2_t0_simv_daidir (UB  * pcode, UB  val);
 void  rmaPropagate3_p_simv_daidir (UB  * pcode, scalar  val);
 void  rmaPropagate3_simv_daidir (UB  * pcode, scalar  val);
 void  rmaPropagate3_wn_simv_daidir (UB  * pcode, scalar  val);

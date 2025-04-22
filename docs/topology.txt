@@ -1,0 +1,31 @@
+-----------------------------------------------------------------------
+Name                          Type                     Size  Value     
+-----------------------------------------------------------------------
+uvm_test_top                  base_test                -     @461      
+  tb                          ptc_tb                   -     @469      
+    env                       ptc_env                  -     @481      
+      agent                   ptc_agent                -     @488      
+        driver                ptc_driver               -     @501      
+          rsp_port            uvm_analysis_port        -     @516      
+            recording_detail  integral                 32    'd1       
+          seq_item_port       uvm_seq_item_pull_port   -     @508      
+            recording_detail  integral                 32    'd1       
+          recording_detail    integral                 32    'd1       
+        monitor               ptc_monitor              -     @633      
+          mon_ap              uvm_analysis_port        -     @640      
+            recording_detail  integral                 32    'd1       
+          recording_detail    integral                 32    'd1       
+        sequencer             ptc_sequencer            -     @524      
+          rsp_export          uvm_analysis_export      -     @531      
+            recording_detail  integral                 32    'd1       
+          seq_item_export     uvm_seq_item_pull_imp    -     @625      
+            recording_detail  integral                 32    'd1       
+          recording_detail    integral                 32    'd1       
+          arbitration_queue   array                    0     -         
+          lock_queue          array                    0     -         
+          num_last_reqs       integral                 32    'd1       
+          num_last_rsps       integral                 32    'd1       
+        is_active             uvm_active_passive_enum  1     UVM_ACTIVE
+        recording_detail      integral                 32    'd1       
+      recording_detail        integral                 32    'd1       
+-----------------------------------------------------------------------

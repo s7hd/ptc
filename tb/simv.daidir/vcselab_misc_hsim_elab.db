@@ -1,6 +1,6 @@
 psSimBaseName                      	simv
 psLogFileName                      	NULL
-psDaiDir                           	/home/Shahad_Alhamyani/vd_training/CX-301-DesignVerification/Peripheral/ptc/ptc/tb/simv.daidir
+psDaiDir                           	/home/Rahaf_Alqahtani/VD_labs/poject/ptc/PTC/ptc/tb/simv.daidir
 destPath                           	csrc/
 fSharedMasterElab                  	0
 fHsimPCSharedLibSpecified          	0

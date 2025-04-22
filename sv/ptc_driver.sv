@@ -8,40 +8,29 @@ class ptc_driver extends uvm_driver #(ptc_transaction);
   endfunction
 
   function void build_phase(uvm_phase phase);
-    super.build_phase(phase);
-    if (!uvm_config_db #(virtual ptc_if)::get(this, "", "vif", vif))
-      `uvm_fatal("NOVIF", "Driver: No virtual interface assigned")
+    if (!uvm_config_db#(virtual ptc_if)::get(this, "", "vif", vif))
+      `uvm_fatal("PTC_DRV", "Failed to get ptc_if")
   endfunction
 
   task run_phase(uvm_phase phase);
     forever begin
-      ptc_transaction tx;
-      seq_item_port.get_next_item(tx);
+      ptc_transaction tr;
+      seq_item_port.get_next_item(tr);
 
-      @(posedge vif.clk);
-      vif.ADR_I   <= tx.addr[14:0];
-      vif.SEL_I   <= 4'b1111;
-      vif.CYC_I   <= 1;
-      vif.STB_I   <= 1;
-      vif.WE_I    <= tx.write;
-
-      if (tx.write) begin
-        vif.DAT_I <= tx.data;
+      // Apply ECGT value if required
+      if (tr.use_ecgt) begin
+        vif.ptc_ecgt <= tr.ecgt_val;
+        `uvm_info("PTC_DRV", $sformatf("ECGT driven: %0b", tr.ecgt_val), UVM_LOW)
+        #10ns;
       end
 
-      //wait for ACK_O from DUT
-      wait (vif.ACK_O == 1);
-
-      if (!tx.write) begin
-        tx.data = vif.DAT_O;
+      // Pulse Capture signal if requested
+      if (tr.use_capt) begin
+        vif.ptc_capt <= 1;
+        #5ns;
+        vif.ptc_capt <= 0;
+        `uvm_info("PTC_DRV", "Capture pulse applied", UVM_LOW)
       end
-
-      //de-assert control signals
-      @(posedge vif.clk);
-      vif.CYC_I <= 0;
-      vif.STB_I <= 0;
-      vif.WE_I  <= 0;
-      vif.DAT_I <= 32'b0;
 
       seq_item_port.item_done();
     end

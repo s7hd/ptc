@@ -4,7 +4,6 @@ class ptc_monitor extends uvm_monitor;
   virtual ptc_if vif;
 
   uvm_analysis_port #(ptc_transaction) mon_ap;
-   ptc_transaction tx;
 
   function new(string name, uvm_component parent);
     super.new(name, parent);
@@ -12,26 +11,18 @@ class ptc_monitor extends uvm_monitor;
   endfunction
 
   function void build_phase(uvm_phase phase);
-    super.build_phase(phase);
-    if (!uvm_config_db #(virtual ptc_if)::get(this, "", "vif", vif))
-      `uvm_fatal("NOVIF", "Monitor: No virtual interface assigned")
+    if (!uvm_config_db#(virtual ptc_if)::get(this, "", "vif", vif))
+      `uvm_fatal("PTC_MON", "Failed to get ptc_if")
   endfunction
-
+ptc_transaction tr;
   task run_phase(uvm_phase phase);
     forever begin
-      @(posedge vif.clk);
-     
-      tx = ptc_transaction::type_id::create("tx_mon");
-
-      //output signals from DUT 
-      tx.data[0] = vif.ptc_pwm;
-      tx.data[1] = vif.ptc_oen;
-      tx.data[2] = vif.inta_o;
-
-      mon_ap.write(tx);
-
-      `uvm_info("PTC_MON", $sformatf("MONITOR -- PWM: %b, OEN: %b, INTA_O: %b", 
-                  vif.ptc_pwm, vif.ptc_oen, vif.inta_o), UVM_LOW)
+      @(posedge vif.monitor_start); // Triggered by driver or testbench
+       tr = ptc_transaction::type_id::create("mon_tr");
+      tr.ecgt_val = vif.ptc_ecgt;
+      tr.use_ecgt = 1;
+      // You can also add capturing current state of ptc_pwm, ptc_oen if useful
+      mon_ap.write(tr);
     end
   endtask
 endclass

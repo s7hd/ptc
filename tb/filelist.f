@@ -2,7 +2,7 @@
 -timescale=1ns/1ps 
 
 // include directories
--incdir ../sv # include directory for sv files
++incdir+ ../sv # include directory for sv files
 ../sv/ptc_pkg.sv # compile  package
 ../sv/ptc_if.sv # compile  interface
 
