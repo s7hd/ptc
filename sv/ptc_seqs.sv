@@ -96,9 +96,9 @@ class ptc_base_seq extends uvm_sequence #(ptc_transaction);
 
   // Newline
   localparam RPTC_CTRL_ADDR = 32'h4000_0000;
-  localparam RPTC_CNTR_ADDR = 32'h4000_0000;
-  localparam RPTC_HRC_ADDR  = 32'h4000_0004;
-  localparam RPTC_LRC_ADDR  = 32'h4000_0008;
+  localparam RPTC_CNTR_ADDR = 32'h4000_0004;
+  localparam RPTC_HRC_ADDR  = 32'h4000_0008;
+  localparam RPTC_LRC_ADDR  = 32'h4000_000C;
 
   function new(string name = "ptc_base_seq");
     super.new(name);
@@ -147,7 +147,7 @@ class ptc_counter_reset_seq extends ptc_base_seq;
     // Step 1: Reset counter manually (CNTRRST = 1)
     tr = ptc_transaction::type_id::create("set_cntrrst");
     tr.addr  = RPTC_CTRL_ADDR;
-    tr.data  = 32'h00000080;
+    tr.data  = 32'h00000010;
     tr.write = 1;
     start_item(tr); finish_item(tr);
 
@@ -180,7 +180,7 @@ class ptc_pwm_mode_seq extends ptc_base_seq;
     tr = ptc_transaction::type_id::create("set_hrc");
     tr.addr = RPTC_HRC_ADDR;
     tr.write = 1;
-    tr.write_data = 32'd10;
+    tr.write_data = 32'h10;
     start_item(tr); finish_item(tr);
 
     // Set Low Reference Value
@@ -390,7 +390,7 @@ class ptc_capture_feature_seq extends ptc_base_seq;
     start_item(tr);
     tr.addr = RPTC_CNTR_ADDR;
     tr.write = 0;
-    finish_item(tr);
+    finish_item(tr);tr.sprint()
     #10ns;
     // Pulse capture input
     tr = ptc_transaction::type_id::create("pulse_capture");
