@@ -16,7 +16,7 @@ class ptc_driver extends uvm_driver #(ptc_transaction);
     forever begin
       ptc_transaction tr;
       seq_item_port.get_next_item(tr);
-
+      `uvm_info(get_type_name(), tr.sprint(), UVM_LOW)
       // Apply ECGT value if required
       if (tr.use_ecgt) begin
         vif.ptc_ecgt <= tr.ecgt_val;

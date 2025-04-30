@@ -20,7 +20,7 @@
 +UVM_VERBOSITY=UVM_HIGH
 //+UVM_TESTNAME=demo_base_test
 
-+UVM_TESTNAME=base_test
++UVM_TESTNAME=ptc_capture_feature
 //+UVM_TESTNAME=hbus_master_topology
 
 

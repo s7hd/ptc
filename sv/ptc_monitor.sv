@@ -21,8 +21,11 @@ ptc_transaction tr;
        tr = ptc_transaction::type_id::create("mon_tr");
       tr.ecgt_val = vif.ptc_ecgt;
       tr.use_ecgt = 1;
+       `uvm_info(get_type_name(), "moniter recived", UVM_LOW)
       // You can also add capturing current state of ptc_pwm, ptc_oen if useful
       mon_ap.write(tr);
+            `uvm_info(get_type_name(), tr.sprint(), UVM_LOW)
+
     end
   endtask
 endclass
