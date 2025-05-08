@@ -390,7 +390,7 @@ class ptc_capture_feature_seq extends ptc_base_seq;
     start_item(tr);
     tr.addr = RPTC_CNTR_ADDR;
     tr.write = 0;
-    finish_item(tr);tr.sprint()
+    finish_item(tr);tr.sprint();
     #10ns;
     // Pulse capture input
     tr = ptc_transaction::type_id::create("pulse_capture");
